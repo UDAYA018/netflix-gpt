@@ -18,6 +18,19 @@
 - useNavigate() to navigate to different page
 - Implemented Sign Out
 - Update profile
+- BugFix: Sign up user displayName and profile picture update
+- BugGix: If the user is not logged in redirect /browse to login page and vice-versa
+- Unsubscribe to the onAuthStateChanged callback
+- Add Hardcoded values to the constants file.
+- Register TMDB API & create an app and get access token
+- Get data from the TMDB now playing movies list API
+- Custom Hook for Now Playing Movies
+- Create MovieSlice
+- Update Store with movie data
+- Planning for MainContainer and SecondaryContainer
+- Fetch Data for Trailer Video
+- Embedded the youtube video and make it autoplay and mute
+- Tailwind css to make it look awesome
 
 # Features
 

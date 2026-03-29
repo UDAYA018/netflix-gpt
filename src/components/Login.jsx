@@ -1,6 +1,5 @@
 import React, { useState, useRef } from "react";
 import Header from "./Header";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
 import { checkValidData } from "../utils/validate";
@@ -10,11 +9,11 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
+import { BACKGROUND_IMAGE, USER_AVATAR } from "../utils/constants";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const name = useRef(null);
@@ -26,7 +25,7 @@ const Login = () => {
     const message = checkValidData(
       name?.current?.value,
       email?.current?.value,
-      password?.current?.value
+      password?.current?.value,
     );
     setErrorMessage(message);
 
@@ -38,14 +37,14 @@ const Login = () => {
       createUserWithEmailAndPassword(
         auth,
         email?.current?.value,
-        password?.current?.value
+        password?.current?.value,
       )
         .then((userCredential) => {
           // Signed up
           const user = userCredential.user;
           updateProfile(user, {
             displayName: name?.current?.value,
-            photoURL: "https://avatars.githubusercontent.com/u/105876227?v=4",
+            photoURL: USER_AVATAR,
           })
             .then(() => {
               const { uid, email, displayName, photoURL } = auth.currentUser; // should use auth.currentUser to get the updated user info. If use user then it will be the old user info before updateProfile.
@@ -55,9 +54,8 @@ const Login = () => {
                   email: email,
                   displayName: displayName,
                   photoURL: photoURL,
-                })
+                }),
               );
-              navigate("/browse");
             })
             .catch((error) => {
               setErrorMessage(error.message);
@@ -73,13 +71,11 @@ const Login = () => {
       signInWithEmailAndPassword(
         auth,
         email?.current?.value,
-        password?.current?.value
+        password?.current?.value,
       )
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          console.log(user);
-          navigate("/browse");
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -98,7 +94,7 @@ const Login = () => {
       <div className="absolute">
         <img
           className="w-screen h-auto"
-          src="https://occ.a.nflxso.net/dnm/api/v6/iMyKkw5SVrkCXbCfSBEb_Pjar5Y/AAAAQBTxE26zgLJoqZnmxUCfZtVJ2HbJUsVonZ_9Uo-pn68zarPK.png"
+          src={BACKGROUND_IMAGE}
           alt="login-background"
         />
       </div>
