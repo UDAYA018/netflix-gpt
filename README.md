@@ -31,6 +31,14 @@
 - Fetch Data for Trailer Video
 - Embedded the youtube video and make it autoplay and mute
 - Tailwind css to make it look awesome
+- Build Secondary Component
+- Build Movie List
+- Build Movie Card
+- TMDB Image CDN URL
+- Made the Browse page amazing using Tailwind css
+- usePopularMovies custom hooks
+- useUpComingMovies custom hooks
+- useTopRated custom hooks
 
 # Features
 
