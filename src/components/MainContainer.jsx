@@ -8,7 +8,7 @@ const MainContainer = () => {
   //Early return to avoid rendering the component when movies data is not available
   if (!movies) return;
 
-  const mainMovie = movies[18];
+  const mainMovie = movies[4];
 
   const { original_title, overview, id } = mainMovie;
   return (

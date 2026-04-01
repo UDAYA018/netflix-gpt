@@ -7,12 +7,14 @@ export const USER_AVATAR =
 export const BACKGROUND_IMAGE =
   "https://occ.a.nflxso.net/dnm/api/v6/iMyKkw5SVrkCXbCfSBEb_Pjar5Y/AAAAQBTxE26zgLJoqZnmxUCfZtVJ2HbJUsVonZ_9Uo-pn68zarPK.png";
 
+export const BACKGROUND_IMAGE_GPT =
+  "https://assets.nflxext.com/ffe/siteui/vlv3/fc164b4b-f085-44ee-bb7f-ec7df8539eff/d23a1608-7d90-4da1-93d6-bae2fe60a69b/IN-en-20230814-popsignuptwoweeks-perspective_alpha_website_large.jpg";
+
 export const API_OPTIONS = {
   method: "GET",
   headers: {
     accept: "application/json",
-    Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxNGIxZTU0NzE5NGMyOTM5YTdjOTRhZTIwMDJmZmU3YiIsIm5iZiI6MTc3Mzg1NzUzOC42NDYwMDAxLCJzdWIiOiI2OWJhZWIwMmZmNzhkNGY4ODEzYjhhNzciLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.r7HAVRbFctajp246nkoPeGgGLtx1wVM2sXgDFpzn5e4",
+    Authorization: "Bearer " + import.meta.env.VITE_TMDB_KEY,
   },
 };
 
@@ -23,3 +25,5 @@ export const SUPPORTED_LANGUAGES = [
   { identifier: "es", name: "Spanish" },
   { identifier: "fr", name: "French" },
 ];
+
+export const OPENAI_KEY = import.meta.env.VITE_OPENAI_KEY;
