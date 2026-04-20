@@ -89,3 +89,6 @@
 - provide my store to my app using Provdier[react-redux] in the root of the app.
 - dispatch an action using useDispatch[react-redux]
 - to get the photoURL from the store, do useSelector(store => store.user)
+
+# Test case coverage
+  npm run test -- --coverage
